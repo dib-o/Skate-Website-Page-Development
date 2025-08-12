@@ -1,4 +1,32 @@
 
+let design_containers = document.querySelectorAll('.design-content .containers .container');
+
+design_containers.forEach(design_container => {
+    const icon = design_container.querySelector('.title .bx');
+
+    design_container.addEventListener('click', (e) => {
+        const isIconClick = e.target === icon;
+        const isActive = design_container.classList.contains('active');
+
+        design_containers.forEach(dc => {
+            const ico = dc.querySelector('.title .bx');
+            dc.classList.remove('active');
+            if (ico) {
+                ico.classList.remove('bx-minus');
+                ico.classList.add('bx-plus');
+            }
+        });
+
+        if (!isActive || !isIconClick) {
+            design_container.classList.add('active');
+            if (icon) {
+                icon.classList.add('bx-minus');
+                icon.classList.remove('bx-plus');
+            }
+        }
+    });
+});
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 

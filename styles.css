@@ -480,7 +480,7 @@ section {
 
 .design-content .containers .container {
     position: relative;
-    width: 30rem;
+    min-width: 30rem;
     border: .3rem solid var(--linear3-color);
     background: var(--linear3-color);
     color: var(--text2-color);
@@ -488,7 +488,6 @@ section {
     text-align: center;
     padding: 1rem;
     height: auto;
-    cursor: pointer;
     z-index: 1;
     overflow: hidden;
     transition: .5s;
@@ -529,6 +528,49 @@ section {
 
 .design-content .containers .container .designs {
     display: none;
+    height: 40rem;
+}
+
+.design-content .containers .container.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.design-content .containers .container.active .title {
+    padding: 0 3rem;
+}
+
+.design-content .containers .container .title .bx {
+    cursor: pointer;
+}
+
+.design-content .containers .container.active .designs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.design-content .containers .container.active .designs img {
+    width: 10rem;
+    height: 35rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10rem;
+    border: .2rem solid var(--bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+}
+
+.design-content .containers .container.active .designs img:hover {
+    transform: scale(1.05);
 }
 
 .pricing {
@@ -1182,6 +1224,14 @@ section {
     }
     section .heading {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 563px) {
+    .design-content .containers .container.active .designs {
+        margin-top: 4rem;
+        padding-bottom: 3rem;
+        height: auto;
     }
 }
 
