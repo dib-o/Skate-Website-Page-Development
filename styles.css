@@ -34,6 +34,7 @@
     --darklinear7-color: rgb(113, 163, 116);
     --darklinear8-color: rgb(98, 172, 142);
     --lineargradient1-color: linear-gradient(135deg, #ff9a9e, #c73b52);
+    --lineargradient2-color: linear-gradient(135deg, #fad0c4 0%, #d08579 35%, #5b3b38 100%);
     --lineargradient3-color: linear-gradient(135deg, #a18cd1, #fbc2eb);
     --lineargradient4-color: linear-gradient(135deg, #2c2c2c, #ff4f81);
     --lineargradient5-color: linear-gradient(135deg, #28527a, #a6c1ee);
@@ -429,21 +430,69 @@ section {
 }
 
 .about-content {
-    text-align: left;
-    max-width: 80rem;
     padding: 1rem 5rem;
     line-height: 1.6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-.about-content p,
-.about-content ul {
+.about-content .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: .3rem solid var(--linear2-color);
+    border-radius: 2.5rem;
+    color: var(--text2-color);
+    background: var(--linear2-color);
+    padding: 1rem;
+    width: 80%;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: .5s;
+}
+
+.about-content .container:hover {
+    color: var(--text1-color);
+}
+
+.about-content .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--lineargradient2-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.about-content .container:hover::before {
+    width: 100%;
+}
+
+.about-content .container:nth-child(1), 
+.about-content .container:nth-child(3) {
+    text-align: center;
+}
+
+.about-content .container p {
     position: relative;
     font-size: 1.6rem;
-    margin: 2rem 0 3rem;
+    margin: 1rem 3rem;
 }
 
-.about-content ul {
-    margin: 2rem 5rem 3rem;
+.about-content .container ul {
+    position: relative;
+    font-size: 1.6rem;
+    margin: 1rem 3rem;
 }
 
 .design {
@@ -1266,7 +1315,7 @@ section {
     }
 }
 
-@media (max-width: 563px) {
+@media (max-width: 633px) {
     .design-content .containers .container.active .designs {
         margin-top: 4rem;
         padding-bottom: 3rem;
@@ -1308,7 +1357,7 @@ section {
         font-size: 4.2rem;
     }
     .heading h2 {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 }
 
