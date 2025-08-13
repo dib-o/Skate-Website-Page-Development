@@ -117,3 +117,17 @@ window.onscroll = () => {
 
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 }
+
+window.addEventListener("load", () => {
+    const preloader = document.getElementById('preloader');
+    const content = document.getElementById('skate-content'); 
+
+    setTimeout(() => {
+        preloader.classList.add('fade-out');
+
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        }, 1000);
+    }, 5500);
+});
