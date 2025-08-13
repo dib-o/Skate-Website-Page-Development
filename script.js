@@ -1,4 +1,53 @@
 
+const priceSets = document.querySelectorAll('.pricing-set');
+const SetDiv = document.querySelector('.set.chosen');
+
+priceSets.forEach(set => {
+    set.addEventListener('click', () => {
+        const title = set.querySelector('h3').textContent;
+        const price = set.querySelector('h4').textContent;
+
+        const exists = [...SetDiv.querySelectorAll('h3')]
+            .some(h3 => h3.textContent === title)
+        
+        if (!exists && SetDiv.querySelectorAll('h3').length < 1) {
+            const h3 = document.createElement('h3');
+            const p = document.createElement('p');
+            p.textContent = price;
+            h3.textContent = title;
+            SetDiv.appendChild(h3);
+            SetDiv.appendChild(p);
+        }
+    })
+})
+
+const images = document.querySelectorAll('.designs img');
+const DesDiv = document.querySelector('.des.chosen'); 
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        const altVal = img.alt;
+        const srcVal = img.src;
+
+        const exists = [...DesDiv.querySelectorAll('p')]
+            .some(p => p.textContent === altVal);
+
+        if (!exists && DesDiv.querySelectorAll('p').length <= 10) {
+            const line = document.createElement('div');
+            const icon = document.createElement('img');
+            const p = document.createElement('p');
+            line.classList.add('line');          
+            p.textContent = altVal;
+            icon.src = srcVal;
+
+            line.appendChild(icon);
+            line.appendChild(p);
+            DesDiv.appendChild(line);
+        }
+    });
+});
+
+
 let design_containers = document.querySelectorAll('.design-content .containers .container');
 
 design_containers.forEach(design_container => {
