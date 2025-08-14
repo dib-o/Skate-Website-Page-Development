@@ -114,8 +114,8 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 
     let footer = document.querySelector('footer');
-
-    footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
+    
+    footer.classList.toggle('show-animate', window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2);
 }
 
 window.addEventListener("load", () => {
